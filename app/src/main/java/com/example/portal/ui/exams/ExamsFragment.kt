@@ -6,22 +6,42 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.portal.R
+import com.example.portal.adapter.ExamRecyclerViewAdapter
+import com.example.portal.databinding.FragmentExamsBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-class ExamsFragment : Fragment() {
+@AndroidEntryPoint
+class ExamsFragment : Fragment(R.layout.fragment_exams) {
 
-    private lateinit var examsViewModel: ExamsViewModel
+    private var _binding: FragmentExamsBinding? = null
+    private val binding get() = _binding!!
+
+    private lateinit var examsAdapter: ExamRecyclerViewAdapter
+    private val viewModel: ExamsViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        examsViewModel =
-            ViewModelProvider(this).get(ExamsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_exams, container, false)
-        return root
+        _binding = FragmentExamsBinding.inflate(inflater, container, false)
+
+        setupRecyclerView()
+
+        return binding.root
+    }
+
+    private fun setupRecyclerView() {
+        examsAdapter = ExamRecyclerViewAdapter()
+        binding.rvExams.apply {
+            adapter = examsAdapter
+            layoutManager = LinearLayoutManager(requireContext())
+        }
+        examsAdapter.differ.submitList(viewModel.papers)
     }
 }

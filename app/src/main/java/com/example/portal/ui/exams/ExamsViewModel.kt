@@ -1,13 +1,12 @@
 package com.example.portal.ui.exams
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
+import com.example.portal.data.repository.ExamRepository
 
-class ExamsViewModel : ViewModel() {
+class ExamsViewModel @ViewModelInject constructor(
+    private val repository: ExamRepository
+) : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is exams Fragment"
-    }
-    val text: LiveData<String> = _text
+    val papers = repository.getPapers()
 }

@@ -10,6 +10,6 @@ class ExamRepository @Inject constructor(private val examDao: ExamDao) {
     fun getPapers(): List<Paper> = examDao.getPapers()
 
     fun getPaperQuestions(id: String): List<Question> {
-        return examDao.getQuestions().filter { q -> q.id === id }
+        return examDao.getQuestions().filter { q -> q.paper === id }
     }
 }

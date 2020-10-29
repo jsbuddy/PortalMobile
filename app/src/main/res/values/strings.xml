@@ -9,4 +9,22 @@
 
     <string name="menu_home">Home</string>
     <string name="menu_exams">Exams</string>
+    
+    <string name="active">Active</string>
+    <string name="pending">Pending</string>
+    <string name="time">Time</string>
+    <string name="date">Date</string>
+    <string name="course_title">Course title</string>
+    <string name="course_code">Course code</string>
+    <string name="start">Start</string>
+    <string name="lecturer">Lecturer</string>
+    <string name="creator">Jude Francis</string>
+    <string name="pre_exam_note">Note: Your timer starts counting as soon as you click the start button below, ensure you are fully prepared before stating this paper</string>
+    <string name="cd_status_indicator">Paper status indicator</string>
+    <string name="menu_exam">Exam</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="submit">Submit</string>
+    <string name="finish">Finish</string>
+    <string name="view_all">View all</string>
 </resources>

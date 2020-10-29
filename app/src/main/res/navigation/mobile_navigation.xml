@@ -9,12 +9,34 @@
         android:id="@+id/nav_home"
         android:name="com.example.portal.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_nav_home_to_nav_exams"
+            app:destination="@id/nav_exams" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_exams"
         android:name="com.example.portal.ui.exams.ExamsFragment"
         android:label="@string/menu_exams"
-        tools:layout="@layout/fragment_exams" />
+        tools:layout="@layout/fragment_exams">
+        <action
+            android:id="@+id/action_nav_exams_to_nav_exam"
+            app:destination="@id/nav_exam" />
+    </fragment>
 
+    <fragment
+        android:id="@+id/nav_exam"
+        android:name="com.example.portal.ui.exam.ExamFragment"
+        android:label="@string/menu_exam"
+        tools:layout="@layout/fragment_exam">
+        <argument
+            android:name="paper"
+            app:argType="com.example.portal.data.model.Paper" />
+        <action
+            android:id="@+id/action_nav_exam_to_nav_exams"
+            app:destination="@id/nav_exams"
+            app:popUpTo="@id/nav_exams"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

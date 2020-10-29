@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.example.portal.data.repository.ExamRepository
 
 class ExamsViewModel @ViewModelInject constructor(
-    private val repository: ExamRepository
+    repository: ExamRepository
 ) : ViewModel() {
 
     val papers = repository.getPapers()

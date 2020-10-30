@@ -28,7 +28,7 @@ class ExamDao {
                 title = "Introduction to Politics",
                 session = "2020/2021",
                 semester = 1,
-                date = LocalDateTime.parse("2020-10-10T09:00:00"),
+                date = LocalDateTime.parse("2020-10-10T12:00:00"),
                 duration = 2,
                 active = false
             )

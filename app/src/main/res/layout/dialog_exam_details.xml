@@ -64,7 +64,8 @@
 
         <com.google.android.flexbox.FlexboxLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:justifyContent="space_evenly">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -90,6 +91,30 @@
                     app:formatDate="@{paper.date}" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextAppearance.MaterialComponents.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/time"
+                    android:textColor="@color/muted"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:formatTime="@{paper.date}" />
+            </LinearLayout>
+
         </com.google.android.flexbox.FlexboxLayout>
 
         <LinearLayout
@@ -107,7 +132,6 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/tv_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"

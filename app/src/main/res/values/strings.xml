@@ -27,4 +27,6 @@
     <string name="submit">Submit</string>
     <string name="finish">Finish</string>
     <string name="view_all">View all</string>
+    <string name="announcements">Announcements</string>
+    <string name="today_s_papers">Today\'s Papers</string>
 </resources>

@@ -12,7 +12,7 @@
     <color name="onBackground">#222222</color>
     <color name="muted">#BF222222</color>
 
-    <color name="warning">#FFD740</color>
+    <color name="warning">#FFAB40</color>
     <color name="success">#57E19D</color>
     <color name="danger">#FF5252</color>
     <color name="onBackgroundTranslucent">#0A222222</color>

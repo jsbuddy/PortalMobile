@@ -17,7 +17,7 @@ class ExamDao {
                 session = "2020/2021",
                 semester = 1,
                 date = LocalDateTime.parse("2020-10-10T09:00:00"),
-                duration = 2,
+                duration = 1,
                 active = true
             )
         )

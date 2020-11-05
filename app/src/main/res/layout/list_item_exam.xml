@@ -6,8 +6,7 @@
     android:layout_marginHorizontal="15dp"
     android:layout_marginTop="15dp"
     android:clickable="true"
-    android:orientation="vertical"
-    app:cardCornerRadius="6dp">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"

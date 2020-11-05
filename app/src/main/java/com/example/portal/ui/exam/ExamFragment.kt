@@ -29,11 +29,15 @@ class ExamFragment : Fragment(R.layout.fragment_exam) {
         if (!viewModel.initialized) viewModel.initialize(args.paper)
 
         requireActivity().onBackPressedDispatcher.addCallback(this) {
-            MaterialAlertDialogBuilder(requireContext())
-                .setMessage("Exiting this paper without submitting will automatically be recorded as a failure, are you sure you want to continue?")
-                .setNegativeButton("Stay") { _, _ -> }
-                .setPositiveButton("Exit") { _, _ -> findNavController().navigateUp() }
-                .show()
+            if (viewModel.current.value == 0) {
+                MaterialAlertDialogBuilder(requireContext())
+                    .setMessage("Exiting this paper without submitting will automatically be recorded as a failure, are you sure you want to continue?")
+                    .setNegativeButton("Stay") { _, _ -> }
+                    .setPositiveButton("Exit") { _, _ -> findNavController().navigateUp() }
+                    .show()
+            } else {
+                viewModel.previousQuestion()
+            }
         }.isEnabled = true
     }
 

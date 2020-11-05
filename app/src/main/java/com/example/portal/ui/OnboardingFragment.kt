@@ -29,10 +29,9 @@ val slides = arrayListOf(
     ),
 )
 
-class OnboardingFragment : Fragment() {
+class OnboardingFragment : Fragment(R.layout.fragment_onboarding) {
 
-    private var _binding: FragmentOnboardingBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentOnboardingBinding
 
     private val pageChangeCallback = object : ViewPager2.OnPageChangeCallback() {
         override fun onPageSelected(position: Int) {
@@ -47,11 +46,9 @@ class OnboardingFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentOnboardingBinding.inflate(inflater, container, false)
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentOnboardingBinding.bind(view)
         val adapter = OnboardingViewPagerAdapter(slides)
         binding.slides.adapter = adapter
 
@@ -64,8 +61,6 @@ class OnboardingFragment : Fragment() {
         binding.btnFinish.setOnClickListener {
             findNavController().navigate(R.id.action_onboardingFragment_to_nav_home)
         }
-
-        return binding.root
     }
 
     override fun onResume() {

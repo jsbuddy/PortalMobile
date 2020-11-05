@@ -16,10 +16,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
 @AndroidEntryPoint
-class ExamFragment : Fragment() {
+class ExamFragment : Fragment(R.layout.fragment_exam) {
 
-    private var _binding: FragmentExamBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentExamBinding
 
     private val args: ExamFragmentArgs by navArgs()
     private val viewModel: ExamViewModel by viewModels()
@@ -38,15 +37,13 @@ class ExamFragment : Fragment() {
         }.isEnabled = true
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title = args.paper.code
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
-        _binding = FragmentExamBinding.inflate(inflater, container, false)
+        binding = FragmentExamBinding.bind(view)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
-        return binding.root
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

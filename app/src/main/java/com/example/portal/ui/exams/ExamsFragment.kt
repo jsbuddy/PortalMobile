@@ -20,20 +20,15 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class ExamsFragment : Fragment(R.layout.fragment_exams) {
 
-    private var _binding: FragmentExamsBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentExamsBinding
 
     private lateinit var examsAdapter: ExamRecyclerViewAdapter
     private val viewModel: ExamsViewModel by viewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentExamsBinding.inflate(inflater, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentExamsBinding.bind(view)
         setupRecyclerView()
-        return binding.root
     }
 
     private fun setupRecyclerView() {

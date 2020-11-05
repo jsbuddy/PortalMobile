@@ -168,7 +168,7 @@
 
                 </com.google.android.flexbox.FlexboxLayout>
 
-                <androidx.cardview.widget.CardView
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/activity_horizontal_margin"
@@ -194,7 +194,7 @@
                             android:layout_marginTop="5dp"
                             android:text="Due to the covid 19 restrictions, resumption date will be delayed by a month" />
                     </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
         </ScrollView>
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="15dp"
     android:layout_marginTop="15dp"
-    android:background="@drawable/card_bg_green"
+    android:clickable="true"
     android:orientation="vertical"
     app:cardCornerRadius="6dp">
 
@@ -26,7 +26,6 @@
                 android:id="@+id/tv_course_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CSC 101"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -60,7 +59,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Introduction to computer science"
             android:textSize="14sp" />
 
         <LinearLayout
@@ -73,20 +71,18 @@
                 android:id="@+id/tv_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_baseline_calendar_today_24"
                 android:drawablePadding="10dp"
-                android:text="Tue, Sep 2020"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                app:drawableStartCompat="@drawable/ic_baseline_calendar_today_24" />
 
             <TextView
                 android:id="@+id/tv_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:drawableStart="@drawable/ic_baseline_access_time_24"
+                android:layout_marginStart="20dp"
                 android:drawablePadding="10dp"
-                android:text="2:00pm"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                app:drawableStartCompat="@drawable/ic_baseline_access_time_24" />
         </LinearLayout>
     </LinearLayout>
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

@@ -16,6 +16,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.portal.R
 import com.example.portal.data.model.LoggedInUser
 import com.example.portal.databinding.FragmentLoginBinding
+import com.example.portal.utils.DrawerLocker
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,6 +28,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity?)?.supportActionBar?.hide()
+        (activity as DrawerLocker).setDrawerEnabled(false)
         binding = FragmentLoginBinding.bind(view)
 
         loginViewModel.loginFormState.observe(viewLifecycleOwner, Observer { loginFormState ->
@@ -111,10 +114,5 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             android.content.Context.INPUT_METHOD_SERVICE
         ) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(this.windowToken, 0)
-    }
-
-    override fun onStart() {
-        super.onStart()
-        (activity as AppCompatActivity?)?.supportActionBar?.hide()
     }
 }

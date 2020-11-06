@@ -1,20 +1,15 @@
 package com.example.portal.ui.exams
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.portal.R
 import com.example.portal.adapter.ExamRecyclerViewAdapter
 import com.example.portal.databinding.FragmentExamsBinding
 import com.example.portal.ui.dialogs.ExamDetailsDialog
+import com.example.portal.utils.DrawerLocker
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,6 +22,7 @@ class ExamsFragment : Fragment(R.layout.fragment_exams) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as DrawerLocker).setDrawerEnabled(true)
         binding = FragmentExamsBinding.bind(view)
         setupRecyclerView()
     }

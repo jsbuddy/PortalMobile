@@ -10,6 +10,7 @@ import com.example.portal.R
 import com.example.portal.adapter.OnboardingViewPagerAdapter
 import com.example.portal.data.model.OnboardingSlide
 import com.example.portal.databinding.FragmentOnboardingBinding
+import com.example.portal.utils.DrawerLocker
 import timber.log.Timber
 
 val slides = arrayListOf(
@@ -48,6 +49,7 @@ class OnboardingFragment : Fragment(R.layout.fragment_onboarding) {
         super.onViewCreated(view, savedInstanceState)
         Timber.d("viewCreated!")
         (activity as AppCompatActivity?)?.supportActionBar?.hide()
+        (activity as DrawerLocker).setDrawerEnabled(false)
         binding = FragmentOnboardingBinding.bind(view)
         val adapter = OnboardingViewPagerAdapter(slides)
         binding.slides.adapter = adapter

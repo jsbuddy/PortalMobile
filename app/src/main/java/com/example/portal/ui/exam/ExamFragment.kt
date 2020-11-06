@@ -11,6 +11,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.portal.R
 import com.example.portal.databinding.FragmentExamBinding
 import com.example.portal.ui.dialogs.ExamResultDialog
+import com.example.portal.utils.DrawerLocker
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
@@ -45,6 +46,7 @@ class ExamFragment : Fragment(R.layout.fragment_exam) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title = args.paper.code
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        (activity as DrawerLocker).setDrawerEnabled(false)
         binding = FragmentExamBinding.bind(view)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this

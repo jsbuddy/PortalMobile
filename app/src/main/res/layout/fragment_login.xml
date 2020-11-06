@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="70dp"
             android:paddingEnd="20dp"
-            android:text="Enter your email or matric number and password to continue" />
+            android:text="Provide your login credentials to access your account" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/outlinedTextField"

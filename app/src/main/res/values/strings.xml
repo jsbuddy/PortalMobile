@@ -9,7 +9,7 @@
 
     <string name="menu_home">Home</string>
     <string name="menu_exams">Exams</string>
-    
+
     <string name="active">Active</string>
     <string name="pending">Pending</string>
     <string name="time">Time</string>
@@ -30,4 +30,14 @@
     <string name="announcements">Announcements</string>
     <string name="today_s_papers">Today\'s Papers</string>
     <string name="no_events_today">No events today</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email or Matric number</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_email">Invalid email</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot password?</string>
 </resources>

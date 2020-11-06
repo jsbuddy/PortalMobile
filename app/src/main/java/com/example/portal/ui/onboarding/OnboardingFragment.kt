@@ -1,10 +1,7 @@
-package com.example.portal.ui
+package com.example.portal.ui.onboarding
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -13,6 +10,7 @@ import com.example.portal.R
 import com.example.portal.adapter.OnboardingViewPagerAdapter
 import com.example.portal.data.model.OnboardingSlide
 import com.example.portal.databinding.FragmentOnboardingBinding
+import timber.log.Timber
 
 val slides = arrayListOf(
     OnboardingSlide(
@@ -48,6 +46,8 @@ class OnboardingFragment : Fragment(R.layout.fragment_onboarding) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Timber.d("viewCreated!")
+        (activity as AppCompatActivity?)?.supportActionBar?.hide()
         binding = FragmentOnboardingBinding.bind(view)
         val adapter = OnboardingViewPagerAdapter(slides)
         binding.slides.adapter = adapter
@@ -59,18 +59,8 @@ class OnboardingFragment : Fragment(R.layout.fragment_onboarding) {
         }
 
         binding.btnFinish.setOnClickListener {
-            findNavController().navigate(R.id.action_onboardingFragment_to_nav_home)
+            findNavController().navigate(R.id.action_fragment_onboarding_to_fragment_login)
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        (activity as AppCompatActivity?)?.supportActionBar?.hide()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        (activity as AppCompatActivity?)?.supportActionBar?.show()
     }
 
     override fun onDestroy() {

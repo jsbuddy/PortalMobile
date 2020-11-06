@@ -1,5 +1,6 @@
 package com.example.portal.di
 
+import com.example.portal.data.dao.AuthDataSource
 import com.example.portal.data.dao.ExamDao
 import dagger.Module
 import dagger.Provides
@@ -13,4 +14,8 @@ object AppModule {
     @Singleton
     @Provides
     fun provideExamDao() = ExamDao()
+
+    @Singleton
+    @Provides
+    fun provideAuthDataSource() = AuthDataSource()
 }
